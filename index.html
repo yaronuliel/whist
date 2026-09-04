@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>וויסט — ברושור וחוקי המשחק</title>
+<style>
+  :root{
+    --navy:#10243d; --gold:#d8a94e; --cream:#f8f0df; --paper:#fffaf0;
+    --ink:#1d2733; --red:#a63b32; --green:#365f45; --purple:#68476e;
+    --line:#cdbf9e; --shadow:0 8px 24px #10243d22;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:#d9d0bd;color:var(--ink);
+    font-family:Arial,"Noto Sans Hebrew","David",sans-serif;line-height:1.5;
+  }
+  .book{
+    max-width:1100px;margin:28px auto;background:var(--cream);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  header{
+    background:var(--navy);color:#fff;padding:44px 50px 38px;text-align:center;
+    border-bottom:6px solid var(--gold);position:relative;
+  }
+  header h1{font-size:clamp(52px,9vw,96px);margin:0;color:#fff3d0;letter-spacing:2px}
+  header .tagline{font-size:clamp(20px,3vw,30px);font-weight:800;color:#f4d58a}
+  .stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+  .stat{border:1px solid #e5c875;border-radius:999px;padding:8px 18px;background:#ffffff10}
+  main{padding:30px}
+  .intro{font-size:21px;text-align:center;max-width:850px;margin:0 auto 28px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:22px;box-shadow:0 3px 12px #0000000d;break-inside:avoid;
+  }
+  .card.full{grid-column:1/-1}
+  .title{
+    display:flex;align-items:center;gap:10px;margin:0 0 15px;
+    font-size:27px;color:var(--navy)
+  }
+  .icon{font-size:31px}
+  .ribbon{background:var(--navy);color:#fff;border-radius:8px;padding:7px 14px;font-weight:800}
+  .ribbon.red{background:var(--red)} .ribbon.green{background:var(--green)}
+  .ribbon.purple{background:var(--purple)}
+  .steps{display:grid;gap:10px}
+  .step{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start}
+  .num{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;
+       display:grid;place-items:center;font-weight:900}
+  .example{background:#f1e6cb;border-right:5px solid var(--gold);padding:12px 15px;border-radius:8px;margin-top:10px}
+  .suits{font-size:30px;letter-spacing:7px;text-align:center;margin:8px}
+  .score{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .score > div{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .big{font-size:28px;font-weight:900}
+  .warning{border-right:6px solid var(--red);background:#fff0ed;padding:14px;border-radius:8px}
+  .duel{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .house{border:2px solid var(--line);border-radius:12px;padding:16px;background:#fffdf7}
+  .house h3{margin-top:0}
+  ul{margin:8px 0;padding-right:22px}
+  li{margin:6px 0}
+  footer{background:var(--navy);color:#fff;text-align:center;padding:24px;font-size:21px}
+  @media(max-width:760px){
+    .book{margin:0}.grid,.duel,.score{grid-template-columns:1fr}
+    .card.full{grid-column:auto} main{padding:16px} header{padding:30px 20px}
+  }
+  @media print{
+    body{background:#fff}
+    .book{margin:0;box-shadow:none;max-width:none}
+    .card{box-shadow:none}
+    @page{size:A4;margin:10mm}
+  }
+</style>
+</head>
+<body>
+<div class="book">
+<header>
+  <h1>וויסט - החוקים המלאים</h1>
+  <div class="tagline">המשחק שבו צריך לדעת בדיוק כמה אתה מסוגל לקחת</div>
+  <div class="stats">
+    <span class="stat">👥 4 שחקנים</span>
+    <span class="stat">⏱️ 60–90 דקות</span>
+    <span class="stat">🂠 חפיסה קלפים אחת, ללא ג׳וקרים</span>
+  </div>
+</header>
+
+<main>
+  <p class="intro">
+    וויסט הוא משחק של <b>הימור, טקטיקה וגם מזל</b>.
+    בכל סיבוב מקבלים קלפים, מזהים את השליט, ומהמרים כמה לקיחות ניקח.
+    <b>המטרה: לעמוד בדיוק בהימור.</b>
+  </p>
+
+  <section class="grid">
+    <article class="card">
+      <h2 class="title"><span class="icon">🎯</span><span class="ribbon">מהלך המשחק</span></h2>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div>המשחק מתקיים בסיבובים. בכל סיבוב מספר הקלפים עולה: <b>1, 2, 3 ... 13</b>.</div></div>
+        <div class="step"><span class="num">2</span><div>בסיבוב 1 כל שחקן מקבל קלף אחד; בסיבוב 2 שניים; וכן הלאה.</div></div>
+        <div class="step"><span class="num">3</span><div>את סיבובים <b>1 ו־13 משחקים ארבע פעמים</b>, כך שלכל שחקן יש פעם אחת שבה הוא פותח את הסיבוב.</div></div>
+        <div class="step"><span class="num">4</span><div>את הסיבוב הראשון פותח השחקן שאחרי הדילר. בכל סיבוב לאחר מכן פותח השחקן הבא בתור — בלי קשר לתוצאות הסיבוב הקודם.</div></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2 class="title"><span class="icon">👑</span><span class="ribbon red">השליט</span></h2>
+      <p>בתחילת כל סיבוב, אחרי חלוקת הקלפים, הדילר פותח קלף נוסף. <b>הצורה של הקלף היא השליט</b> — הצורה החזקה ביותר בסיבוב.</p>
+      <div class="suits">♠️ ♥️ ♦️ ♣️</div>
+      <p><b>למספר שעל קלף השליט אין משמעות — רק לצורה.</b></p>
+      <div class="example">לדוגמה: אם ♥️ הוא השליט, כל קלף ♥️ הוא שליט, מה־2 ועד האס.</div>
+    </article>
+
+    <article class="card full">
+      <h2 class="title"><span class="icon">💰</span><span class="ribbon">מהמרים!</span></h2>
+      <p>לאחר קבלת הקלפים כל שחקן מסתכל על היד שלו ועל השליט, ומהמר <b>כמה לקיחות הוא חושב שייקח</b> בסיבוב.</p>
+      <div class="example"><b>החוכמה:</b> לא להמר כמה היית רוצה לקחת — אלא כמה אתה באמת מסוגל לקחת.</div>
+    </article>
+
+    <article class="card full">
+      <h2 class="title"><span class="icon">⚔️</span><span class="ribbon">איך לוקחים לקיחה?</span></h2>
+      <div class="steps">
+        <div class="step"><span class="num">0</span><div><b>הקלף החזק ביותר לוקח את הלקיחה:</b> בכל סבב, זורק כל שחקן בתורו קלף אחד אל השולחן. הקלף החזק ביותר בסבב זוכה בלקיחה (בדומה למשחק ״מלחמה״)</div></div>
+        <div class="step"><span class="num">1</span><div><b>הראשון קובע את הצורה:</b> הקלף שזרק השחקן הראשון בסבב קובע את הצורה שמשוחקת בסבב.</div></div>
+        <div class="step"><span class="num">2</span><div><b>חייבים לעקוב:</b> כל שחקן שאחריו חייב לשחק קלף מאותה צורה, אם יש לו קלף מהצורה ביד. (לתחמנים, אין מקום "לבלף" - הבלוף יתגלה בהמשך)</div></div>
+        <div class="step"><span class="num">3</span><div><b>אין לך את הצורה?</b> תוכל לזרוק כל קלף אחר. זה השלב שבו הדברים נעשים מעניינים</div></div>
+        <div class="step"><span class="num">4</span><div><b>זרקת קלף שאינו בצורה המשוחקת ואינו שליט?</b> הקלף נשרף, ובעצם לא משתתף בסבב ולקחת את הלקיחה (זאת הדרך להיפטר מקלפים).</div></div>
+        <div class="step"><span class="num">5</span><div><b>זרקת שליט ("חתכת")?</b> קלף חותך מנצח כל קלף מהצורה המשוחקת.</div></div>
+        <div class="step"><span class="num">6</span><div><b>נזרקו מספר חותכים בסבב?</b> החותך הגבוה ביותר מנצח.</div></div>
+        <div class="step"><span class="num">7</span><div><b>דירוג:</b> אס הוא הקלף הגבוה ביותר בכל צורה (אס שליט = לקיחה בטוחה)</div></div>
+        <div class="step"><span class="num">8</span><div><b>המנצח פותח:</b> השחקן שזכה בלקיחה פותח את הלקיחה הבאה.</div></div>
+      </div>
+      <div class="example"><b>דוגמה לחיתוך:</b> אם ♥️ הוא השליט והלקיחה נפתחה ב־♠️, אז <b>2♥️ מנצח גם A♠️</b>.</div>
+    </article>
+
+    <article class="card">
+      <h2 class="title"><span class="icon">🧮</span><span class="ribbon green">הניקוד</span></h2>
+      <p>בסוף כל סיבוב סופרים כמה לקיחות כל שחקן לקח ומשווים להימור מתחילת הסיבוב</p>
+      <div class="score">
+        <div><div class="big">✅</div><b>עמד בהימור</b><br>10 נקודות בונוס + מספר הלקיחות<br><br><b>דוגמא:  הימר 2 ולקח 2 = מקבל 12 נקודות</b></div>
+        <div><div class="big">📉</div><b>לקח פחות</b><br>מקבל נקודה על כל לקיחה שלקח<br><br><b>דוגמא: הימר 4 ולקח 3 = מקבל 3 נקודות</b></div>
+        <div><div class="big">❌</div><b>לקח יותר</b><br>לא מקבל נקודות<br><br><b>דוגמא: הימר 2 ולקח 3 = 0 נקודות</b></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2 class="title"><span class="icon">🚫</span><span class="ribbon purple">חוק ההימור האחרון</span></h2>
+      <p>לשחקן האחרון שמהמר אסור להמר מספר שיאפשר מצב שבו <b>כל השחקנים יעמדו בהימור</b>. (נהוג לשאול "כמה נשאר לי?")</p>
+      <div class="warning"><b>דוגמה:</b> אם בסיבוב 4 שלושת השחקנים ראשונים הימרו 1, 1, 1. השחקן האחרון <b>לא יכול להמר 1</b>, כי אז סכום ההימורים יהיה 4 וכל הארבעה יוכלו לעמוד.</div>
+    </article>
+
+    <article class="card">
+      <h2 class="title"><span class="icon">🫘</span><span class="ribbon">משחקים בלקחת או בלתת?</span></h2>
+      <p>כשסכום ההימורים קטן ממספר הלקיחות בסיבוב - קוראים לזה <b>משחק ב"לתת"</b> — במשחק כזה השחקנים מנסים להיפטר מקלפים חזקים.</p>
+      <p>כשסכום ההימורים גדול ממספר הלקיחות בסיבוב - קוראים לזה <b>משחק ב"לקחת"</b> — במשחק כזה השחקנים מתחרים על כל לקיחה (אל תתפלאו אם יחתכו אתכם!).</p>
+    </article>
+
+    <article class="card">
+      <h2 class="title"><span class="icon">🧆</span><span class="ribbon">חומוס ושעועית</span></h2>
+      <p>מכיוון שהמשחק משוחק בדרך כלל בשבתות וחגים, נהוג לייצג את הניקוד באמצעות הקטניות חומוס ושעועית</p>
+      <div class="score">
+        <div><div class="big">🧆</div><b>חומוס</b><br>10 נקודות</div>
+        <div><div class="big">🫘</div><b>שעועית</b><br>נקודה אחת</div>
+        <div class="big">המהדרין משחקים עם חומוס ושעועית גם בימי חול!</div>
+      </div>
+    </article>
+
+    <article class="card full">
+      <h2 class="title"><span class="icon">🔥</span><span class="ribbon purple">סיבוב 13</span></h2>
+      <p>זהו הסיבוב האחרון, שבו <b>כל 52 הקלפים מחולקים</b>. קיימת מחלוקת עתיקת יומין בין <b>בית יצחק</b> ל־<b>בית אברהם</b> לגבי אופן בחירת השליט בסיבוב זה:</p>
+      <div class="duel">
+        <div class="house">
+          <h3>🏛️ בית יצחק</h3>
+          <p>טרם חלוקת הקלפים הדילר פותח קלף אקראי שקובע את השליט, ולאחר מכן מחזיר אותו לחפיסה, מערבב ומחלק כרגיל.</p>
+        </div>
+        <div class="house">
+          <h3>🏛️ בית אברהם</h3>
+          <p><b>לאחר חלוקת הקלפים</b> לפני שלב ההימורים, מתקיים סבב מכרז על צורת השליט</p>
+          <ul>
+            <li>כל שחקן, בתורו, יכול להציע את צורת שליט, ובתמורה להתחייב להמר על מספר לקיחות מסוים, או להכריז פס</li>
+            <li><b>כדי להגיש הצעה במכרז חייבים להתחייב להימור של מינימום 6 לקיחות.</b></li>
+            <li>השחקנים שאחריו יכולים להעלות את ההצעה או להכריז פס (בדומה לפוקר)</li>
+            <li>השליט נקבע לאחר ששלושה שחקנים הכריזו "פס".</li>
+            <li>הזוכה במכרז מחויב להמר לפחות את ההתחייבות שלו, ויכול גם יותר.</li>
+          </ul>
+          <div>* קיימת גרסה שבה ניתן להציע במכרז סיבוב נטול שליט</div>
+        </div>
+        <div class="warning"><b>חשוב!</b> מומלץ להסכים על שיטת המשחק לפני ההגעה לסיבוב 13 כשהאמוציות בשיא</div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  🃏 להמר נכון. להעריך נכון. לקחת בדיוק כמה שהבטחת. 🏆
+</footer>
+</div>
+
+</body>
+</html>
