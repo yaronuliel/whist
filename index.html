@@ -16,6 +16,15 @@
     margin:0;background:#d9d0bd;color:var(--ink);
     font-family:Arial,"Noto Sans Hebrew","David",sans-serif;line-height:1.5;
   }
+  .toolbar{
+    position:sticky;top:0;z-index:10;display:flex;gap:8px;justify-content:center;
+    padding:10px;background:var(--navy);box-shadow:0 3px 14px #0003;
+  }
+  button{
+    border:1px solid #ffffff55;background:#fff;color:var(--navy);border-radius:8px;
+    padding:8px 14px;font-weight:700;cursor:pointer
+  }
+  button:hover{background:#f2ead9}
   .book{
     max-width:1100px;margin:28px auto;background:var(--cream);
     box-shadow:var(--shadow);overflow:hidden;
@@ -52,6 +61,7 @@
   .suits{font-size:30px;letter-spacing:7px;text-align:center;margin:8px}
   .score{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .score > div{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .med{font-size:20px;font-weight:700}
   .big{font-size:28px;font-weight:900}
   .warning{border-right:6px solid var(--red);background:#fff0ed;padding:14px;border-radius:8px}
   .duel{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -60,11 +70,16 @@
   ul{margin:8px 0;padding-right:22px}
   li{margin:6px 0}
   footer{background:var(--navy);color:#fff;text-align:center;padding:24px;font-size:21px}
+  [contenteditable="true"]{outline:2px dashed #d8a94e;outline-offset:3px}
+  .edit-only{display:none}
+  body.editing .edit-only{display:inline-block}
+  body.editing .editable{cursor:text}
   @media(max-width:760px){
     .book{margin:0}.grid,.duel,.score{grid-template-columns:1fr}
     .card.full{grid-column:auto} main{padding:16px} header{padding:30px 20px}
   }
   @media print{
+    .toolbar{display:none!important}
     body{background:#fff}
     .book{margin:0;box-shadow:none;max-width:none}
     .card{box-shadow:none}
@@ -75,7 +90,8 @@
 <body>
 <div class="book">
 <header>
-  <h1>וויסט - החוקים המלאים</h1>
+  <div ></div>
+  <h1 >וויסט - החוקים המלאים</h1>
   <div class="tagline">המשחק שבו צריך לדעת בדיוק כמה אתה מסוגל לקחת</div>
   <div class="stats">
     <span class="stat">👥 4 שחקנים</span>
@@ -155,13 +171,13 @@
     </article>
 
     <article class="card">
-      <h2 class="title"><span class="icon">🧆</span><span class="ribbon">חומוס ושעועית</span></h2>
+      <h2 class="title"><span class="icon">🧆</span><span class="ribbon">מה הקשר לחומוס ושעועית?!</span></h2>
       <p>מכיוון שהמשחק משוחק בדרך כלל בשבתות וחגים, נהוג לייצג את הניקוד באמצעות הקטניות חומוס ושעועית</p>
       <div class="score">
-        <div><div class="big">🧆</div><b>חומוס</b><br>10 נקודות</div>
-        <div><div class="big">🫘</div><b>שעועית</b><br>נקודה אחת</div>
-        <div class="big">המהדרין משחקים עם חומוס ושעועית גם בימי חול!</div>
+        <div><div class="big">🧆</div><b>חומוס</b><br><span class="med">=</span><br>10 נקודות</div>
+        <div><div class="big">🫘</div><b>שעועית</b><br><span class="med">=</span><br>נקודה אחת</div>
       </div>
+      <div class="example">המהדרין משחקים עם חומוס ושעועית גם בימי חול!</div>
     </article>
 
     <article class="card full">
@@ -174,8 +190,7 @@
         </div>
         <div class="house">
           <h3>🏛️ בית אברהם</h3>
-          <p><b>לאחר חלוקת הקלפים</b> לפני שלב ההימורים, מתקיים סבב מכרז על צורת השליט</p>
-          <ul>
+          <p><b>לאחר חלוקת הקלפים</b> לפני שלב ההימורים, מתקיים סבב מכרז על צורת השליט<ul>
             <li>כל שחקן, בתורו, יכול להציע את צורת שליט, ובתמורה להתחייב להמר על מספר לקיחות מסוים, או להכריז פס</li>
             <li><b>כדי להגיש הצעה במכרז חייבים להתחייב להימור של מינימום 6 לקיחות.</b></li>
             <li>השחקנים שאחריו יכולים להעלות את ההצעה או להכריז פס (בדומה לפוקר)</li>
@@ -190,7 +205,7 @@
   </section>
 </main>
 
-<footer>
+<footer >
   🃏 להמר נכון. להעריך נכון. לקחת בדיוק כמה שהבטחת. 🏆
 </footer>
 </div>
